@@ -67,15 +67,26 @@ function App() {
       }
     }
 
+    const onPrimera = function() {
+      setPage(1);
+    }
+    
     const onSiguiente = function() {
       if (page < (Math.ceil(totalElements/elements))) {
         setPage(parseInt(page)+1);
       }
     }
 
+    const onUltima = function() {
+      setPage(Math.ceil(totalElements/elements));
+    }
+
     return (
       <nav className="mt-2">
         <ul className="pagination">
+          <li className="page-item">
+            <button className="page-link btn-primary text-white" onClick={ onPrimera }>Primera</button>
+          </li>
           <li className="page-item">
             <button className="page-link btn-primary text-white" onClick={ onPrevio }>Previo</button>
           </li>
@@ -85,6 +96,10 @@ function App() {
           <li className="page-item">
             <button className="page-link btn-primary text-white" onClick={ onSiguiente }>Siguiente</button>
           </li>
+          <li className="page-item">
+            <button className="page-link btn-primary text-white" onClick={ onUltima }>Ultima</button>
+          </li>
+
         </ul>
       </nav>
     );
